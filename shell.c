@@ -69,7 +69,7 @@ int main(){
 		//waiting for child to terminate
 		wait(NULL);
 		getrusage(RUSAGE_CHILDREN, &process);
-		printf("CPU Time used:%f\n", process.ru_utime);
+		printf("CPU Time used:%ld.%06ld\n", process.ru_utime.tv_sec, process.ru_utime.tv_usec);
 		printf("Involuntary context switches: %d\n\n", process.ru_nivcsw);
 	}else{
 		//child
